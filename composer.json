@@ -24,6 +24,11 @@
             "Absolvent\\api\\tests\\": "tests/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Absolvent\\api\\fixtures\\": "fixtures/"
+        }
+    },
     "scripts": {
         "post-root-package-install": [
             "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
