@@ -6,11 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=7.1.0",
-        "dflydev/dot-access-data": "^1.1",
-        "justinrainbow/json-schema": "^5.0",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "^1.0",
-        "symfony/yaml": "^3.2"
+        "laravel/passport": "^2.0",
+        "league/fractal": "^0.15.0",
+        "symfony/yaml": "^3.2",
+        "zizaco/entrust": "^1.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -41,7 +41,6 @@
         ]
     },
     "config": {
-        "preferred-install": "dist",
         "sort-packages": true
     }
 }
