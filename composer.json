@@ -4,8 +4,15 @@
     "keywords": [],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.absolvent.pl"
+        }
+    ],
     "require": {
         "php": ">=7.1.0",
+        "absolvent/bundle-swagger": "^1.0",
         "laravel/framework": "5.4.*",
         "laravel/passport": "^2.0",
         "league/fractal": "^0.15.0",
@@ -46,6 +53,7 @@
         ]
     },
     "config": {
+        "secure-http": false,
         "sort-packages": true
     }
 }
