@@ -10,7 +10,6 @@ class PetstoreSwaggerTest extends TestCase
     {
         $response = $this->get('/api/pet');
 
-        // dd($response->getContent());
         $response->assertStatus(200);
     }
 }

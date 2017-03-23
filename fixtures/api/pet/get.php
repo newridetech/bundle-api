@@ -3,11 +3,14 @@
 namespace Absolvent\api\fixtures\api\pet;
 
 use Absolvent\api\Http\Controller;
+use Illuminate\Http\JsonResponse;
 
 class get extends Controller
 {
-    public function sendResponse(array $properties)
+    public function createResponse(array $properties): JsonResponse
     {
-        // use assert then to validate response
+        return response()->json([
+            'hiho :D',
+        ]);
     }
 }
