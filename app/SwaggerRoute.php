@@ -3,6 +3,7 @@
 namespace Absolvent\api;
 
 use Absolvent\swagger\Breadcrumbs\RequestPath\RequestMethod as RequestMethodBreadcrumbs;
+use League\Uri\Components\HierarchicalPath;
 
 class SwaggerRoute
 {
@@ -20,8 +21,11 @@ class SwaggerRoute
         return $this->requestMethodBreadcrumbs->breadcrumbs[2];
     }
 
-    public function getUri(): string
+    public function getUri(string $basePath): string
     {
-        return $this->requestMethodBreadcrumbs->breadcrumbs[1];
+        $path = new HierarchicalPath($this->requestMethodBreadcrumbs->breadcrumbs[1]);
+        $path = $path->prepend($basePath);
+
+        return strval($path);
     }
 }

@@ -58,13 +58,14 @@ class RouteServiceProvider extends ServiceProvider
     {
         $router = $this->app->make('router');
         $swaggerSchema = $this->app->make(AppSwaggerSchema::class);
+        $basePath = $swaggerSchema->get('basePath');
 
         $swaggerRouteLoader = SwaggerRouteLoader::fromSwaggerSchema($swaggerSchema);
 
         foreach ($swaggerRouteLoader->getSwaggerRoutes() as $swaggerRoute) {
             $router->match(
                 $swaggerRoute->getMethod(),
-                $swaggerRoute->getUri(),
+                $swaggerRoute->getUri($basePath),
                 $swaggerRoute->swaggerRouteAction->getAction($this->namespace)
             );
         }

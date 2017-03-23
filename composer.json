@@ -12,10 +12,11 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "absolvent/bundle-swagger": "^1.0",
+        "absolvent/bundle-swagger": "^1.1.1",
         "laravel/framework": "5.4.*",
         "laravel/passport": "^2.0",
         "league/fractal": "^0.15.0",
+        "league/uri": "^5.0",
         "symfony/yaml": "^3.2",
         "zizaco/entrust": "^1.7"
     },

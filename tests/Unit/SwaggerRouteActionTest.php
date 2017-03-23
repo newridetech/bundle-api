@@ -24,7 +24,7 @@ class SwaggerRouteActionTest extends TestCase
     /**
      * @dataProvider provideRequestMethodBreadcrumbs
      */
-    public function testThatRouteActionIsGenerated(RequestMethodBreadcrumbs $requestMethodBreadcrumbs, $namespace, $expectedAction)
+    public function testThatRouteActionIsGenerated(RequestMethodBreadcrumbs $requestMethodBreadcrumbs, string $namespace, string $expectedAction)
     {
         $swaggerRouteAction = new SwaggerRouteAction($requestMethodBreadcrumbs);
 
