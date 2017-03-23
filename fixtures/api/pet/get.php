@@ -8,5 +8,6 @@ class get extends Controller
 {
     public function sendResponse(array $properties)
     {
+        // use assert then to validate response
     }
 }

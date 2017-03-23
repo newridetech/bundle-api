@@ -2,8 +2,11 @@
 
 namespace Absolvent\api\Providers;
 
-use Illuminate\Support\Facades\Route;
+use Absolvent\api\AppSwaggerSchema;
+use Absolvent\api\SwaggerRouteLoader;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -14,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Absolvent\api\Http\Controller';
+    protected $namespace = 'Absolvent\api\fixtures\api';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -30,7 +33,6 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this->mapApiRoutes();
-
         $this->mapWebRoutes();
     }
 
@@ -54,10 +56,17 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
-            ->middleware('api')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api.php'))
-        ;
+        $router = $this->app->make('router');
+        $swaggerSchema = $this->app->make(AppSwaggerSchema::class);
+
+        $swaggerRouteLoader = SwaggerRouteLoader::fromSwaggerSchema($swaggerSchema);
+
+        foreach ($swaggerRouteLoader->getSwaggerRoutes() as $swaggerRoute) {
+            $router->match(
+                $swaggerRoute->getMethod(),
+                $swaggerRoute->getUri(),
+                $swaggerRoute->swaggerRouteAction->getAction($this->namespace)
+            );
+        }
     }
 }

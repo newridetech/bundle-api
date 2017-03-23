@@ -171,6 +171,7 @@ return [
          * Application Service Providers...
          */
         Absolvent\api\Providers\AppServiceProvider::class,
+        Absolvent\api\Providers\AppSwaggerSchemaProvider::class,
         Absolvent\api\Providers\AuthServiceProvider::class,
         // Absolvent\api\Providers\BroadcastServiceProvider::class,
         Absolvent\api\Providers\EventServiceProvider::class,
