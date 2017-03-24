@@ -10,7 +10,10 @@ class get extends Controller
     public function createResponse(array $properties): JsonResponse
     {
         return response()->json([
-            'hiho :D',
+            [
+                'pet_id' => 1,
+                'pet_name' => 'hihi',
+            ],
         ]);
     }
 }

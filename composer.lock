@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8d2e8b550ec6f8ab187e62f2ad1ae94",
+    "content-hash": "194ef891aac54789840db4e7a570d106",
     "packages": [
         {
             "name": "absolvent/bundle-swagger",
-            "version": "1.1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:absolvent/bundle-swagger.git",
-                "reference": "a93b1a6b013d4eb940f4c292f00ed65b8f322c13"
+                "reference": "1bfb67ea92d970bf4ea3bd814e41d149e66e378f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/absolvent/bundle-swagger/zipball/a93b1a6b013d4eb940f4c292f00ed65b8f322c13",
-                "reference": "a93b1a6b013d4eb940f4c292f00ed65b8f322c13",
+                "url": "https://api.github.com/repos/absolvent/bundle-swagger/zipball/1bfb67ea92d970bf4ea3bd814e41d149e66e378f",
+                "reference": "1bfb67ea92d970bf4ea3bd814e41d149e66e378f",
                 "shasum": ""
             },
             "require": {
@@ -60,7 +60,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2017-03-23T18:33:54+00:00"
+            "time": "2017-03-24T14:17:20+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
