@@ -3,15 +3,15 @@
 namespace Absolvent\api\Http;
 
 use Absolvent\api\AppSwaggerValidator;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 abstract class Controller extends BaseController
 {
     public $appSwaggerValidator;
 
-    abstract public function createResponse(array $properties): JsonResponse;
+    abstract public function createResponse(Request $request): Response;
 
     public function __construct(AppSwaggerValidator $appSwaggerValidator)
     {
@@ -20,7 +20,7 @@ abstract class Controller extends BaseController
 
     public function handleRequest(Request $request)
     {
-        $response = $this->createResponse([]);
+        $response = $this->createResponse($request);
 
         // validate data according to Swagger schema then throw invalid data
         // exception on failure; assertions are zero-cost in production,

@@ -3,11 +3,12 @@
 namespace Absolvent\api\fixtures\api\pet;
 
 use Absolvent\api\Http\Controller;
-use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class get extends Controller
 {
-    public function createResponse(array $properties): JsonResponse
+    public function createResponse(Request $request): Response
     {
         return response()->json([
             [
