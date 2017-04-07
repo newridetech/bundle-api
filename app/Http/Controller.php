@@ -2,35 +2,45 @@
 
 namespace Absolvent\api\Http;
 
-use Absolvent\api\AppSwaggerValidator;
+use Absolvent\api\AppSwaggerSchema;
+use Absolvent\swagger\SwaggerValidator;
+use Absolvent\swagger\SwaggerValidator\HttpRequest as HttpRequestValidator;
+use Absolvent\swagger\SwaggerValidator\HttpResponse as HttpResponseValidator;
 use Illuminate\Routing\Controller as BaseController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 abstract class Controller extends BaseController
 {
-    public $appSwaggerValidator;
+    public $swaggerSchema;
 
     abstract public function createResponse(Request $request): Response;
 
-    public function __construct(AppSwaggerValidator $appSwaggerValidator)
+    public function __construct(AppSwaggerSchema $swaggerSchema)
     {
-        $this->appSwaggerValidator = $appSwaggerValidator;
+        $this->swaggerSchema = $swaggerSchema;
     }
 
-    public function handleRequest(Request $request)
+    public function validateSchema(SwaggerValidator $swaggerValidator): void
     {
-        $response = $this->createResponse($request);
-
         // validate data according to Swagger schema then throw invalid data
         // exception on failure; assertions are zero-cost in production,
         // duplicate code is used to fully utilize performance advantages of
         // 'assert' language construct (PHP7+)
         // http://php.net/manual/en/function.assert.php
         assert(
-            $this->appSwaggerValidator->validateResponse($request, $response)->isValid(),
-            $this->appSwaggerValidator->validateResponse($request, $response)->getException()
+            $swaggerValidator->validateAgainst($this->swaggerSchema)->isValid(),
+            $swaggerValidator->validateAgainst($this->swaggerSchema)->getException()
         );
+    }
+
+    public function handleRequest(Request $request): Response
+    {
+        $this->validateSchema(new HttpRequestValidator($request));
+
+        $response = $this->createResponse($request);
+
+        $this->validateSchema(new HttpResponseValidator($request, $response));
 
         return $response;
     }
