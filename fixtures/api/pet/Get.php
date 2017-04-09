@@ -6,7 +6,7 @@ use Absolvent\api\Http\Controller;
 use stdClass;
 use Symfony\Component\HttpFoundation\Response;
 
-class get extends Controller
+class Get extends Controller
 {
     public function createResponse(stdClass $parameters): Response
     {

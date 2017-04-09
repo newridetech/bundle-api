@@ -23,7 +23,7 @@ class SwaggerRouteAction
             $namespace,
             str_replace('/', self::NAMESPACE_SEPARATOR, $pathname),
             self::NAMESPACE_SEPARATOR,
-            $method,
+            ucfirst($method),
             '@',
             $this->getMethod(),
         ]);

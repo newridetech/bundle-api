@@ -17,7 +17,7 @@ class SwaggerRouteActionTest extends TestCase
                 'get',
             ]),
             'namespace' => 'Foo\Bar',
-            'expectedAction' => 'Foo\Bar\pet\get@handleRequest',
+            'expectedAction' => 'Foo\Bar\pet\Get@handleRequest',
         ];
     }
 
