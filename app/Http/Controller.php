@@ -3,10 +3,14 @@
 namespace Absolvent\api\Http;
 
 use Absolvent\api\AppSwaggerSchema;
+use Absolvent\swagger\RequestParameters;
+use Absolvent\swagger\SwaggerSchema;
+use Absolvent\swagger\SwaggerValidationResult;
 use Absolvent\swagger\SwaggerValidator;
 use Absolvent\swagger\SwaggerValidator\HttpRequest as HttpRequestValidator;
 use Absolvent\swagger\SwaggerValidator\HttpResponse as HttpResponseValidator;
 use Illuminate\Routing\Controller as BaseController;
+use stdClass;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,14 +18,17 @@ abstract class Controller extends BaseController
 {
     public $swaggerSchema;
 
-    abstract public function createResponse(Request $request): Response;
+    abstract public function createResponse(stdClass $parameters): Response;
 
-    public function __construct(AppSwaggerSchema $swaggerSchema)
+    public static function validateHttpRequest(SwaggerSchema $swaggerSchema, HttpRequestValidator $httpRequestValidator): void
     {
-        $this->swaggerSchema = $swaggerSchema;
+        $httpRequestValidtionResult = $httpRequestValidator->validateAgainst($swaggerSchema);
+        if (!$httpRequestValidtionResult->isValid()) {
+            throw $httpRequestValidtionResult->getException();
+        }
     }
 
-    public function validateSchema(SwaggerValidator $swaggerValidator): void
+    public static function validateHttpResponse(SwaggerSchema $swaggerSchema, HttpResponseValidator $httpResponseValidator): void
     {
         // validate data according to Swagger schema then throw invalid data
         // exception on failure; assertions are zero-cost in production,
@@ -29,18 +36,24 @@ abstract class Controller extends BaseController
         // 'assert' language construct (PHP7+)
         // http://php.net/manual/en/function.assert.php
         assert(
-            $swaggerValidator->validateAgainst($this->swaggerSchema)->isValid(),
-            $swaggerValidator->validateAgainst($this->swaggerSchema)->getException()
+            $httpResponseValidator->validateAgainst($swaggerSchema)->isValid(),
+            $httpResponseValidator->validateAgainst($swaggerSchema)->getException()
         );
+    }
+
+    public function __construct(AppSwaggerSchema $swaggerSchema)
+    {
+        $this->swaggerSchema = $swaggerSchema;
     }
 
     public function handleRequest(Request $request): Response
     {
-        $this->validateSchema(new HttpRequestValidator($request));
+        static::validateHttpRequest($this->swaggerSchema, new HttpRequestValidator($request));
 
-        $response = $this->createResponse($request);
+        $parameters = (new RequestParameters($request))->getDataBySwaggerSchema($this->swaggerSchema);
+        $response = $this->createResponse($parameters);
 
-        $this->validateSchema(new HttpResponseValidator($request, $response));
+        static::validateHttpResponse($this->swaggerSchema, new HttpResponseValidator($request, $response));
 
         return $response;
     }
