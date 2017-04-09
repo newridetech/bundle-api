@@ -49,11 +49,17 @@ abstract class Controller extends BaseController
         //    as if it would be assigned to some class property
         $swaggerSchema = App::make(AppSwaggerSchema::class);
 
+        // validation should not be stateful; static function makes it harder
+        // to create stateful validation
         static::validateHttpRequest($swaggerSchema, new HttpRequestValidator($request));
 
+        // only parameters defined in swagger schema should passed into this
+        // method to enforce correct API documentation in swagger.yml
         $parameters = (new RequestParameters($request))->getDataBySwaggerSchema($swaggerSchema);
         $response = $this->createResponse($parameters);
 
+        // response and request validation should be stateless; static
+        // functions make it harder to break this
         static::validateHttpResponse($swaggerSchema, new HttpResponseValidator($request, $response));
 
         return $response;
