@@ -39,7 +39,7 @@ abstract class Controller extends BaseController
         );
     }
 
-    public function handleRequest(Request $request): Response
+    final public function handleRequest(Request $request): Response
     {
         // do not pass global SwaggerSchema through constructor's DI to make it
         // easier for a developer to use (and be more defensive):
