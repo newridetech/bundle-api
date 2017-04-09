@@ -8,6 +8,7 @@ use Absolvent\swagger\SwaggerSchema;
 use Absolvent\swagger\SwaggerValidator;
 use Absolvent\swagger\SwaggerValidator\HttpRequest as HttpRequestValidator;
 use Absolvent\swagger\SwaggerValidator\HttpResponse as HttpResponseValidator;
+use App;
 use Illuminate\Routing\Controller as BaseController;
 use stdClass;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,8 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class Controller extends BaseController
 {
-    public $swaggerSchema;
-
     abstract public function createResponse(stdClass $parameters): Response;
 
     public static function validateHttpRequest(SwaggerSchema $swaggerSchema, SwaggerValidator $swaggerValidator): void
@@ -40,19 +39,22 @@ abstract class Controller extends BaseController
         );
     }
 
-    public function __construct(AppSwaggerSchema $swaggerSchema)
-    {
-        $this->swaggerSchema = $swaggerSchema;
-    }
-
     public function handleRequest(Request $request): Response
     {
-        static::validateHttpRequest($this->swaggerSchema, new HttpRequestValidator($request));
+        // do not pass global SwaggerSchema through controller to make it
+        // easier for a developer to use (and be more defensive):
+        // 1. passing SwaggerSchema object through controller constructor would
+        //    no longer be necessary
+        // 2. it would be harder to override application swagger schema than
+        //    as if it would be assigned to some class property
+        $swaggerSchema = App::make(AppSwaggerSchema::class);
 
-        $parameters = (new RequestParameters($request))->getDataBySwaggerSchema($this->swaggerSchema);
+        static::validateHttpRequest($swaggerSchema, new HttpRequestValidator($request));
+
+        $parameters = (new RequestParameters($request))->getDataBySwaggerSchema($swaggerSchema);
         $response = $this->createResponse($parameters);
 
-        static::validateHttpResponse($this->swaggerSchema, new HttpResponseValidator($request, $response));
+        static::validateHttpResponse($swaggerSchema, new HttpResponseValidator($request, $response));
 
         return $response;
     }
