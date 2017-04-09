@@ -5,7 +5,6 @@ namespace Absolvent\api\Http;
 use Absolvent\api\AppSwaggerSchema;
 use Absolvent\swagger\RequestParameters;
 use Absolvent\swagger\SwaggerSchema;
-use Absolvent\swagger\SwaggerValidationResult;
 use Absolvent\swagger\SwaggerValidator;
 use Absolvent\swagger\SwaggerValidator\HttpRequest as HttpRequestValidator;
 use Absolvent\swagger\SwaggerValidator\HttpResponse as HttpResponseValidator;
@@ -20,15 +19,15 @@ abstract class Controller extends BaseController
 
     abstract public function createResponse(stdClass $parameters): Response;
 
-    public static function validateHttpRequest(SwaggerSchema $swaggerSchema, HttpRequestValidator $httpRequestValidator): void
+    public static function validateHttpRequest(SwaggerSchema $swaggerSchema, SwaggerValidator $swaggerValidator): void
     {
-        $httpRequestValidtionResult = $httpRequestValidator->validateAgainst($swaggerSchema);
+        $httpRequestValidtionResult = $swaggerValidator->validateAgainst($swaggerSchema);
         if (!$httpRequestValidtionResult->isValid()) {
             throw $httpRequestValidtionResult->getException();
         }
     }
 
-    public static function validateHttpResponse(SwaggerSchema $swaggerSchema, HttpResponseValidator $httpResponseValidator): void
+    public static function validateHttpResponse(SwaggerSchema $swaggerSchema, SwaggerValidator $swaggerValidator): void
     {
         // validate data according to Swagger schema then throw invalid data
         // exception on failure; assertions are zero-cost in production,
@@ -36,8 +35,8 @@ abstract class Controller extends BaseController
         // 'assert' language construct (PHP7+)
         // http://php.net/manual/en/function.assert.php
         assert(
-            $httpResponseValidator->validateAgainst($swaggerSchema)->isValid(),
-            $httpResponseValidator->validateAgainst($swaggerSchema)->getException()
+            $swaggerValidator->validateAgainst($swaggerSchema)->isValid(),
+            $swaggerValidator->validateAgainst($swaggerSchema)->getException()
         );
     }
 
