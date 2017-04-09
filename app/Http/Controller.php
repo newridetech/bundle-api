@@ -54,7 +54,8 @@ abstract class Controller extends BaseController
         static::validateHttpRequest($swaggerSchema, new HttpRequestValidator($request));
 
         // only parameters defined in swagger schema should passed into this
-        // method to enforce correct API documentation in swagger.yml
+        // method (instead of Request object) to enforce correct API
+        // documentation in swagger.yml
         $parameters = (new RequestParameters($request))->getDataBySwaggerSchema($swaggerSchema);
         $response = $this->createResponse($parameters);
 
