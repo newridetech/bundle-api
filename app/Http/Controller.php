@@ -20,6 +20,8 @@ abstract class Controller extends BaseController
 
     public static function validateHttpRequest(SwaggerSchema $swaggerSchema, SwaggerValidator $swaggerValidator): void
     {
+        // this is pretty straightforward; good swagger.yml file should be
+        // enough to fully validate incoming request parameters
         $httpRequestValidtionResult = $swaggerValidator->validateAgainst($swaggerSchema);
         if (!$httpRequestValidtionResult->isValid()) {
             throw $httpRequestValidtionResult->getException();
