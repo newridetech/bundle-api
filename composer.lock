@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ddc797f82f63ffd25134f9c93462d17",
+    "content-hash": "392c26ae72938e705755ffe0651e7e1c",
     "packages": [
         {
             "name": "absolvent/bundle-swagger",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/absolvent/bundle-swagger.git",
-                "reference": "d21fb6e3bb07dbfcdd9e47b7071b4d933b6b0313"
+                "reference": "368062f0c6e7cbafd2664d2b6c34b8e00859c290"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/absolvent/bundle-swagger/zipball/d21fb6e3bb07dbfcdd9e47b7071b4d933b6b0313",
-                "reference": "d21fb6e3bb07dbfcdd9e47b7071b4d933b6b0313",
+                "url": "https://api.github.com/repos/absolvent/bundle-swagger/zipball/368062f0c6e7cbafd2664d2b6c34b8e00859c290",
+                "reference": "368062f0c6e7cbafd2664d2b6c34b8e00859c290",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2017-04-09T19:31:11+00:00"
+            "time": "2017-04-12T14:54:13+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -687,16 +687,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.17",
+            "version": "v5.4.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f7675d59e3863a58ecdff1a5ee1dcd0cff788f4b"
+                "reference": "d15ded55b5e690199393ea93a57edcbae20d1ffc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f7675d59e3863a58ecdff1a5ee1dcd0cff788f4b",
-                "reference": "f7675d59e3863a58ecdff1a5ee1dcd0cff788f4b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d15ded55b5e690199393ea93a57edcbae20d1ffc",
+                "reference": "d15ded55b5e690199393ea93a57edcbae20d1ffc",
                 "shasum": ""
             },
             "require": {
@@ -812,7 +812,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-04-03T13:07:39+00:00"
+            "time": "2017-04-10T19:27:41+00:00"
         },
         {
             "name": "laravel/passport",
@@ -3306,16 +3306,16 @@
         },
         {
             "name": "zizaco/entrust",
-            "version": "1.7.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zizaco/entrust.git",
-                "reference": "1fa77fadfbc8840ee1e9a6ce483b39ba985f81d2"
+                "reference": "992e484f90a4d00b8ec0f42e8a59ba0b07ba1e09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/1fa77fadfbc8840ee1e9a6ce483b39ba985f81d2",
-                "reference": "1fa77fadfbc8840ee1e9a6ce483b39ba985f81d2",
+                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/992e484f90a4d00b8ec0f42e8a59ba0b07ba1e09",
+                "reference": "992e484f90a4d00b8ec0f42e8a59ba0b07ba1e09",
                 "shasum": ""
             },
             "require": {
@@ -3370,7 +3370,7 @@
                 "permission",
                 "roles"
             ],
-            "time": "2016-03-09T17:05:35+00:00"
+            "time": "2016-12-29T06:24:46+00:00"
         }
     ],
     "packages-dev": [
