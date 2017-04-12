@@ -41,6 +41,18 @@ abstract class Controller extends BaseController
         );
     }
 
+    public function createResponseFromRequest(Request $request): Response
+    {
+        $swaggerSchema = App::make(AppSwaggerSchema::class);
+
+        // only parameters defined in swagger schema should passed into this
+        // method (instead of Request object) to enforce correct API
+        // documentation in swagger.yml
+        $parameters = (new RequestParameters($request))->getDataBySwaggerSchema($swaggerSchema);
+
+        return $this->createResponse($parameters);
+    }
+
     final public function handleRequest(Request $request): Response
     {
         // do not pass global SwaggerSchema through constructor's DI to make it
@@ -55,11 +67,7 @@ abstract class Controller extends BaseController
         // to create stateful validation
         static::validateHttpRequest($swaggerSchema, new HttpRequestValidator($request));
 
-        // only parameters defined in swagger schema should passed into this
-        // method (instead of Request object) to enforce correct API
-        // documentation in swagger.yml
-        $parameters = (new RequestParameters($request))->getDataBySwaggerSchema($swaggerSchema);
-        $response = $this->createResponse($parameters);
+        $response = $this->createResponseFromRequest($request);
 
         // response and request validation should be stateless; static
         // functions make it harder to break this
