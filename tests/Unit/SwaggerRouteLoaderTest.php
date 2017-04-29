@@ -4,8 +4,8 @@ namespace Absolvent\api\tests\Unit;
 
 use Absolvent\api\SwaggerRoute;
 use Absolvent\api\SwaggerRouteLoader;
-use Absolvent\api\tests\TestCase;
 use Absolvent\swagger\SwaggerSchema;
+use PHPUnit\Framework\TestCase;
 
 class SwaggerRouteLoaderTest extends TestCase
 {
@@ -15,7 +15,7 @@ class SwaggerRouteLoaderTest extends TestCase
         $swaggerRouteLoader = SwaggerRouteLoader::fromSwaggerSchema($swaggerSchema);
         $swaggerRoutes = $swaggerRouteLoader->getSwaggerRoutes();
 
-        $this->assertNotEmpty($swaggerRoutes);
-        $this->assertContainsOnlyInstancesOf(SwaggerRoute::class, $swaggerRoutes);
+        self::assertNotEmpty($swaggerRoutes);
+        self::assertContainsOnlyInstancesOf(SwaggerRoute::class, $swaggerRoutes);
     }
 }

@@ -1,10 +1,11 @@
 <?php
 
-namespace Absolvent\api\tests;
+namespace Absolvent\api;
 
-use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use PHPUnit\Framework\TestCase;
 
-trait CreatesApplication
+abstract class TestCase extends BaseTestCase
 {
     /**
      * Creates the application.

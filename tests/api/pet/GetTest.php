@@ -2,7 +2,7 @@
 
 namespace Absolvent\api\tests\Feature;
 
-use Absolvent\api\tests\TestCase;
+use Absolvent\api\TestCase;
 
 class PetstoreSwaggerTest extends TestCase
 {

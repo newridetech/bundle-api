@@ -3,8 +3,8 @@
 namespace Absolvent\api\tests\Unit;
 
 use Absolvent\api\SwaggerRouteAction;
-use Absolvent\api\tests\TestCase;
 use Absolvent\swagger\Breadcrumbs\RequestPath\RequestMethod as RequestMethodBreadcrumbs;
+use PHPUnit\Framework\TestCase;
 
 class SwaggerRouteActionTest extends TestCase
 {
@@ -28,6 +28,6 @@ class SwaggerRouteActionTest extends TestCase
     {
         $swaggerRouteAction = new SwaggerRouteAction($requestMethodBreadcrumbs);
 
-        $this->assertEquals($expectedAction, $swaggerRouteAction->getAction($namespace));
+        self::assertEquals($expectedAction, $swaggerRouteAction->getAction($namespace));
     }
 }

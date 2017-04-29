@@ -3,8 +3,8 @@
 namespace Absolvent\api\tests\Unit;
 
 use Absolvent\api\SwaggerRoute;
-use Absolvent\api\tests\TestCase;
 use Absolvent\swagger\Breadcrumbs\RequestPath\RequestMethod as RequestMethodBreadcrumbs;
+use PHPUnit\Framework\TestCase;
 
 class SwaggerRouteTest extends TestCase
 {
@@ -40,7 +40,7 @@ class SwaggerRouteTest extends TestCase
     {
         $swaggerRouteAction = new SwaggerRoute($requestMethodBreadcrumbs);
 
-        $this->assertEquals($expectedMethod, $swaggerRouteAction->getMethod());
-        $this->assertEquals($expectedUri, $swaggerRouteAction->getUri($basePath));
+        self::assertEquals($expectedMethod, $swaggerRouteAction->getMethod());
+        self::assertEquals($expectedUri, $swaggerRouteAction->getUri($basePath));
     }
 }
