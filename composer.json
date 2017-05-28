@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=7.1.0",
-        "absolvent/bundle-swagger": "^1.4.5",
+        "absolvent/bundle-swagger": "^1.4.6",
         "laravel/framework": "5.4.*",
         "laravel/passport": "^2.0",
         "league/fractal": "^0.15.0",
