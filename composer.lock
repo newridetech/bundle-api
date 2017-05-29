@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "absolvent/bundle-swagger",
-            "version": "1.4.6",
+            "version": "1.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/absolvent/bundle-swagger.git",
-                "reference": "a0f3f48027d553ae06a567bd86623f4b66c07cc9"
+                "reference": "a5fa93beca3d4ed758770f90c0bfc3da486e8301"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/absolvent/bundle-swagger/zipball/a0f3f48027d553ae06a567bd86623f4b66c07cc9",
-                "reference": "a0f3f48027d553ae06a567bd86623f4b66c07cc9",
+                "url": "https://api.github.com/repos/absolvent/bundle-swagger/zipball/a5fa93beca3d4ed758770f90c0bfc3da486e8301",
+                "reference": "a5fa93beca3d4ed758770f90c0bfc3da486e8301",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2017-05-28T22:27:08+00:00"
+            "time": "2017-05-29T20:44:24+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
