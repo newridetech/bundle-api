@@ -2,8 +2,8 @@
 
 namespace Absolvent\api;
 
+use Absolvent\api\Http\Kernel;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use PHPUnit\Framework\TestCase;
 
 abstract class TestCase extends BaseTestCase
 {

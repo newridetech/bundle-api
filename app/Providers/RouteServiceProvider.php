@@ -20,14 +20,6 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'Absolvent\api\fixtures\api';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
-     */
-    public function boot()
-    {
-        parent::boot();
-    }
-
-    /**
      * Define the routes for the application.
      */
     public function map()
