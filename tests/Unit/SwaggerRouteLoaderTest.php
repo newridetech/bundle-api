@@ -11,7 +11,7 @@ class SwaggerRouteLoaderTest extends TestCase
 {
     public function testThatRouteListIsLoaded()
     {
-        $swaggerSchema = SwaggerSchema::fromFilename(env('SWAGGER_FILENAME'));
+        $swaggerSchema = SwaggerSchema::fromFilename(base_path(env('SWAGGER_FILENAME')));
         $swaggerRouteLoader = SwaggerRouteLoader::fromSwaggerSchema($swaggerSchema);
         $swaggerRoutes = $swaggerRouteLoader->getSwaggerRoutes();
 
