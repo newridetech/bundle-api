@@ -10,33 +10,33 @@ final class PreparePatchMultiPartFormTest extends TestCase
 {
     public function testPathWithMultipartFormData()
     {
+        $exampleMultipart = join("\n", [
+            '-----------------------------9051914041544843365972754266',
+            'Content-Disposition: form-data; name="text"',
+            '',
+            'text default',
+            '-----------------------------9051914041544843365972754266',
+            'Content-Disposition: form-data; name="file1"; filename="a.txt"',
+            'Content-Type: text/plain',
+            '',
+            'Content of a.txt.',
+            '',
+            '-----------------------------9051914041544843365972754266',
+            'Content-Disposition: form-data; name="file2"; filename="a.html"',
+            'Content-Type: text/html',
+            '',
+            '<!DOCTYPE html><title>Content of a.html.</title>',
+            '',
+            '-----------------------------9051914041544843365972754266--',
+        ]);
+
         $request = new Request();
         $request->setMethod('PATCH');
         $request->headers->set('Content-Type', 'multipart/form-data; boundary=---------------------------9051914041544843365972754266');
 
         $nextCalled = false;
 
-        $stream = "
------------------------------9051914041544843365972754266
-Content-Disposition: form-data; name=\"text\"
-
-text default
------------------------------9051914041544843365972754266
-Content-Disposition: form-data; name=\"file1\"; filename=\"a.txt\"
-Content-Type: text/plain
-
-Content of a.txt.
-
------------------------------9051914041544843365972754266
-Content-Disposition: form-data; name=\"file2\"; filename=\"a.html\"
-Content-Type: text/html
-
-<!DOCTYPE html><title>Content of a.html.</title>
-
------------------------------9051914041544843365972754266--
-";
-
-        $middleware = new PreparePatchMultiPartForm($stream);
+        $middleware = new PreparePatchMultiPartForm($exampleMultipart);
         $middleware->handle($request, function () use (&$nextCalled) {
             $nextCalled = true;
         });
