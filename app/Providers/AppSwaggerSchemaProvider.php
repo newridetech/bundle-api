@@ -28,8 +28,7 @@ class AppSwaggerSchemaProvider extends ServiceProvider
     {
         $this->app->bind(AppSwaggerSchema::class, function () {
             $swaggerFilename = env('SWAGGER_FILENAME', base_path('swagger.yml'));
-
-            return AppSwaggerSchema::fromFilename($swaggerFilename);
+            return AppSwaggerSchema::fromFilename(base_path($swaggerFilename));
         });
     }
 }

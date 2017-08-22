@@ -2,24 +2,27 @@
 
 namespace Absolvent\api\Providers;
 
+use Absolvent\api\app\Auth\JwtAuthenticationGuard;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use Codecasts\Auth\JWT\Token\Manager;
 
 class AuthServiceProvider extends ServiceProvider
 {
-    /**
-     * The policy mappings for the application.
-     *
-     * @var array
-     */
-    protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
-    ];
-
     /**
      * Register any authentication / authorization services.
      */
     public function boot()
     {
-        $this->registerPolicies();
+        $this->app->bind(JwtAuthenticationGuard::class, function () {
+            return new JwtAuthenticationGuard(JwtAuthenticationGuard::getTokenFromRequest(
+                $this->app->make(Manager::class),
+                $this->app->make('request')
+            ));
+        });
+
+        Auth::extend('jwt', function () {
+            return $this->app->make(JwtAuthenticationGuard::class);
+        });
     }
 }
