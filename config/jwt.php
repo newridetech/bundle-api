@@ -42,7 +42,7 @@ return [
     | P.S. Don't blame me in any case :).
     */
 
-    'secret'   => env('JWT_SECRET', 'changeme'),
+    'secret'   => env('JWT_SECRET', 'SvfJknJLYWwvadkCLVE7HIzn2JpWDkXv'),
 
     /*
     |--------------------------------------------------------------------------

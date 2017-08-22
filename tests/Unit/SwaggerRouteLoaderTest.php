@@ -5,10 +5,13 @@ namespace Absolvent\api\tests\Unit;
 use Absolvent\api\SwaggerRoute;
 use Absolvent\api\SwaggerRouteLoader;
 use Absolvent\swagger\SwaggerSchema;
-use PHPUnit\Framework\TestCase;
+use Illuminate\Foundation\Testing\TestCase;
+use Absolvent\api\tests\CreatesApplication;
 
 class SwaggerRouteLoaderTest extends TestCase
 {
+    use CreatesApplication;
+
     public function testThatRouteListIsLoaded()
     {
         $swaggerSchema = SwaggerSchema::fromFilename(base_path(env('SWAGGER_FILENAME')));
