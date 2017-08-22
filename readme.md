@@ -5,7 +5,22 @@
 ### Enable in project
 
 1. Add `Absolvent\api\Providers\AuthServiceProvider` to `config/app.php` providers.
-2. Add `JWT_SECRET` variable to `.env` (eq. `JWT_SECRET=SvfJknJLYWwvadkCLVE7HIzn2JpWDkXv`)
+2. Create `config/jwt.php` similar to `config/jwt.php` in this bundle
+3. Change `defaults.guard` to `jwt` in `config/auth.php`
+4. Add 
+
+```
+'jwt' => [
+    'driver' => 'jwt',
+    'provider' => 'users',
+],
+```
+
+to `guards` in `config/auth.php`
+
+4. Add `JWT_SECRET` variable to `.env` (eq. `JWT_SECRET=SvfJknJLYWwvadkCLVE7HIzn2JpWDkXv`)
+
+NOTE: `JWT_SECRET` should be te same as in `microservice-users`
 
 ### Usage
 
