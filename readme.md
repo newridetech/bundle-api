@@ -1,40 +1,52 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# absolvent/bundle-api
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## JWT Authentication Guard
 
-## About Laravel
+### Enable in project
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+1. Add `Absolvent\api\Providers\AuthServiceProvider` to `config/app.php` providers.
+2. Add `JWT_SECRET` variable to `.env` (eq. `JWT_SECRET=SvfJknJLYWwvadkCLVE7HIzn2JpWDkXv`)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Usage
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+Generally all Laravel authorization and authentication functionality
+should work out of the box when `JwtAuthenticationGuard` is configured properly.
 
-## Learning Laravel
+#### Get jwt token / user information
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+```
+use Illuminate\Support\Facades\Auth;
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+$user = Auth::user(); // returns JwtUser or null
+$user = Auth::authenticate() // returns JwtUser or throws Exception
+$jwtToken = Auth::getName(); // returns jwt token
+$userSub = Auth::id(); // returns user email (jwt token `sub` claim)
+```
 
-## Contributing
+User information are taken from jwt token so there are very basic.
+To get extended user information you have to issue call to `microservice-users`.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+#### Permission based endpoint authentication
 
-## Security Vulnerabilities
+Add `permission` or `can` middleware to endpoint controller
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+```
+class EndpointController extends \Absolvent\api\Http\Controller
+{
+    public function __construct()
+    {
+        $this->middleware('permission:TALENTDAYS_ADMIN|TALENTDAYS_AREA');
+    }
+    
+    // ...
+}
 
-## License
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+In above example only user with `TALENTDAYS_ADMIN` or `TALENTDAYS_AREA` can access the endpoint
+
+## Allow sending PATH requests with multipart-form content type
+
+Add `Absolvent\api\Http\Middleware\PreparePatchMultiPartForm` to `Absolvent\api\Http\Kernel::$middleware`
+
+Make sure that `PreparePatchMultiPartForm` is after `ValidatePostSize`

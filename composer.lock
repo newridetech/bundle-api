@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cb3ba57d512c302e152e0f70433ffb7",
+    "content-hash": "f0538531704edc754e4d02f03fa80f9d",
     "packages": [
         {
             "name": "absolvent/bundle-swagger",
@@ -2305,6 +2305,51 @@
                 "uuid"
             ],
             "time": "2017-03-26T20:37:53+00:00"
+        },
+        {
+            "name": "riverline/multipart-parser",
+            "version": "1.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Riverline/multipart-parser.git",
+                "reference": "a25de1a3b01886a6cf25203d7623aa908895ebfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Riverline/multipart-parser/zipball/a25de1a3b01886a6cf25203d7623aa908895ebfb",
+                "reference": "a25de1a3b01886a6cf25203d7623aa908895ebfb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Riverline\\MultiPartParser": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Romain Cambien",
+                    "email": "romain@riverline.fr"
+                },
+                {
+                    "name": "Riverline",
+                    "homepage": "http://www.riverline.fr"
+                }
+            ],
+            "description": "One class library to parse multipart content with encoding and charset support.",
+            "keywords": [
+                "http",
+                "multipart",
+                "parser"
+            ],
+            "time": "2015-12-17T14:31:51+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
