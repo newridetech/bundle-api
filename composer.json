@@ -9,11 +9,9 @@
         "absolvent/bundle-swagger": "^1.4.8",
         "codecasts/laravel-jwt": "^0.8.5",
         "laravel/framework": "5.4.*",
-        "laravel/passport": "^2.0",
         "league/fractal": "^0.15.0",
         "league/uri": "^5.0",
-        "symfony/yaml": "^3.2",
-        "zizaco/entrust": "^1.7"
+        "symfony/yaml": "^3.2"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.4",
