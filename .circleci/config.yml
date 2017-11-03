@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: docker-php-ext-install intl
+      - run: sudo docker-php-ext-install intl
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "composer.json" }}
