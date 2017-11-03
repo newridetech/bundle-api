@@ -9,7 +9,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install libicu-dev
       - run: sudo pecl channel-update pecl.php.net
-      - run: sudo pecl install redis && sudo docker-php-ext-enable redis
+      - run: sudo pecl install intl && sudo docker-php-ext-enable intl
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "composer.json" }}
