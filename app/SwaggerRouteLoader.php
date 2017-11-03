@@ -1,10 +1,10 @@
 <?php
 
-namespace Absolvent\api;
+namespace Newride\api;
 
-use Absolvent\swagger\Breadcrumbs\RequestPath\RequestMethod as RequestMethodBreadcrumbs;
-use Absolvent\swagger\SwaggerSchema;
-use Absolvent\swagger\SwaggerSchemaRequestMethods;
+use Newride\swagger\Breadcrumbs\RequestPath\RequestMethod as RequestMethodBreadcrumbs;
+use Newride\swagger\SwaggerSchema;
+use Newride\swagger\SwaggerSchemaRequestMethods;
 
 class SwaggerRouteLoader
 {

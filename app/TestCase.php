@@ -1,8 +1,8 @@
 <?php
 
-namespace Absolvent\api;
+namespace Newride\api;
 
-use Absolvent\api\Http\Kernel;
+use Newride\api\Http\Kernel;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase

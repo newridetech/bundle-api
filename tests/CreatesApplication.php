@@ -1,6 +1,6 @@
 <?php
 
-namespace Absolvent\api\tests;
+namespace Newride\api\tests;
 
 use Illuminate\Contracts\Console\Kernel;
 

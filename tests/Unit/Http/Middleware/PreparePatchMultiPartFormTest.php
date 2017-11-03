@@ -1,8 +1,8 @@
 <?php
 
-namespace Absolvent\api\tests\Unit\Http\Middleware;
+namespace Newride\api\tests\Unit\Http\Middleware;
 
-use Absolvent\api\Http\Middleware\PreparePatchMultiPartForm;
+use Newride\api\Http\Middleware\PreparePatchMultiPartForm;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 

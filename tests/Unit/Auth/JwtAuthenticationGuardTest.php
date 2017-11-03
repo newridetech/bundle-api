@@ -1,9 +1,9 @@
 <?php
 
-namespace Absolvent\api\tests\Unit\Auth;
+namespace Newride\api\tests\Unit\Auth;
 
-use Absolvent\api\app\Auth\JwtUser;
-use Absolvent\api\tests\CreatesApplication;
+use Newride\api\app\Auth\JwtUser;
+use Newride\api\tests\CreatesApplication;
 use Codecasts\Auth\JWT\Token\Manager;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Foundation\Testing\TestCase;

@@ -5,7 +5,7 @@
  * Date: 20.08.17 21:25
  */
 
-namespace Absolvent\api\app\Auth;
+namespace Newride\api\app\Auth;
 
 use Codecasts\Auth\JWT\Token\Manager;
 use Illuminate\Auth\AuthenticationException;
@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class JwtAuthenticationGuard
  *
- * @package Absolvent\AbsolventBackend\app\Auth
+ * @package Newride\NewrideBackend\app\Auth
  *
  * @author  Michał Kowalik <maf.michal@gmail.com>
  */

@@ -1,12 +1,12 @@
 <?php
 
-namespace Absolvent\api\tests\Unit;
+namespace Newride\api\tests\Unit;
 
-use Absolvent\api\SwaggerRoute;
-use Absolvent\api\SwaggerRouteLoader;
-use Absolvent\swagger\SwaggerSchema;
+use Newride\api\SwaggerRoute;
+use Newride\api\SwaggerRouteLoader;
+use Newride\swagger\SwaggerSchema;
 use Illuminate\Foundation\Testing\TestCase;
-use Absolvent\api\tests\CreatesApplication;
+use Newride\api\tests\CreatesApplication;
 
 class SwaggerRouteLoaderTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Absolvent\api\Providers;
+namespace Newride\api\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;

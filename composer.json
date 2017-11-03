@@ -1,16 +1,16 @@
 {
-    "name": "absolvent/bundle-api",
+    "name": "newride/bundle-api",
     "description": "",
     "keywords": [],
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.1.0",
-        "absolvent/bundle-swagger": "^1.4.8",
         "codecasts/laravel-jwt": "^0.8.5",
         "laravel/framework": "5.4.*",
         "league/fractal": "^0.15.0",
         "league/uri": "^5.0",
+        "newride/bundle-swagger": "^1.4.8",
+        "php": ">=7.1.0",
         "symfony/yaml": "^3.2"
     },
     "require-dev": {
@@ -21,14 +21,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Absolvent\\api\\": "app/",
-            "Absolvent\\api\\database\\": "database/",
-            "Absolvent\\api\\tests\\": "tests/"
+            "Newride\\api\\": "app/",
+            "Newride\\api\\database\\": "database/",
+            "Newride\\api\\tests\\": "tests/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Absolvent\\api\\fixtures\\": "fixtures/"
+            "Newride\\api\\fixtures\\": "fixtures/"
         }
     },
     "scripts": {

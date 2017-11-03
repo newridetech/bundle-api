@@ -1,6 +1,6 @@
 <?php
 
-namespace Absolvent\api\Http\Middleware;
+namespace Newride\api\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 

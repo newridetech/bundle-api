@@ -1,8 +1,8 @@
 <?php
 
-namespace Absolvent\api;
+namespace Newride\api;
 
-use Absolvent\swagger\SwaggerSchema;
+use Newride\swagger\SwaggerSchema;
 
 class AppSwaggerSchema extends SwaggerSchema
 {

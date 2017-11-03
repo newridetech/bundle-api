@@ -1,8 +1,8 @@
 <?php
 
-namespace Absolvent\api;
+namespace Newride\api;
 
-use Absolvent\swagger\Breadcrumbs\RequestPath\RequestMethod as RequestMethodBreadcrumbs;
+use Newride\swagger\Breadcrumbs\RequestPath\RequestMethod as RequestMethodBreadcrumbs;
 
 class SwaggerRouteAction
 {

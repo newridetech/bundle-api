@@ -1,9 +1,9 @@
 <?php
 
-namespace Absolvent\api\Providers;
+namespace Newride\api\Providers;
 
-use Absolvent\api\AppSwaggerSchema;
-use Absolvent\api\SwaggerRouteLoader;
+use Newride\api\AppSwaggerSchema;
+use Newride\api\SwaggerRouteLoader;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Absolvent\api\fixtures\api';
+    protected $namespace = 'Newride\api\fixtures\api';
 
     /**
      * Define the routes for the application.

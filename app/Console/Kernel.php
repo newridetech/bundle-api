@@ -1,6 +1,6 @@
 <?php
 
-namespace Absolvent\api\Console;
+namespace Newride\api\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

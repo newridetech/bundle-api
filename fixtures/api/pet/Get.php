@@ -1,8 +1,8 @@
 <?php
 
-namespace Absolvent\api\fixtures\api\pet;
+namespace Newride\api\fixtures\api\pet;
 
-use Absolvent\api\Http\Controller;
+use Newride\api\Http\Controller;
 use stdClass;
 use Symfony\Component\HttpFoundation\Response;
 

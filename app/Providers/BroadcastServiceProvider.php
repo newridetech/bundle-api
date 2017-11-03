@@ -1,6 +1,6 @@
 <?php
 
-namespace Absolvent\api\Providers;
+namespace Newride\api\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;

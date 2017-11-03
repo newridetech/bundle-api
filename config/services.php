@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => Absolvent\api\User::class,
+        'model' => Newride\api\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

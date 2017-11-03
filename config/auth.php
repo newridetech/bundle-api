@@ -72,7 +72,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Absolvent\api\User::class,
+            'model' => Newride\api\User::class,
         ],
 
         // 'users' => [

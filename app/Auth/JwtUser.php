@@ -5,7 +5,7 @@
  * Date: 20.08.17 21:44
  */
 
-namespace Absolvent\api\app\Auth;
+namespace Newride\api\app\Auth;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Lcobucci\JWT\Token;
@@ -13,7 +13,7 @@ use Lcobucci\JWT\Token;
 /**
  * Class JwtUser
  *
- * @package Absolvent\AbsolventBackend\app\Auth
+ * @package Newride\NewrideBackend\app\Auth
  *
  * @author  Michał Kowalik <maf.michal@gmail.com>
  */

@@ -1,13 +1,13 @@
-# absolvent/bundle-api
+# newride/bundle-api
 
 ## JWT Authentication Guard
 
 ### Enable in project
 
-1. Add `Absolvent\api\Providers\AuthServiceProvider` to `config/app.php` providers.
+1. Add `Newride\api\Providers\AuthServiceProvider` to `config/app.php` providers.
 2. Create `config/jwt.php` similar to `config/jwt.php` in this bundle
 3. Change `defaults.guard` to `jwt` in `config/auth.php`
-4. Add 
+4. Add
 
 ```
 'jwt' => [
@@ -46,13 +46,13 @@ To get extended user information you have to issue call to `microservice-users`.
 Add `permission` or `can` middleware to endpoint controller
 
 ```
-class EndpointController extends \Absolvent\api\Http\Controller
+class EndpointController extends \Newride\api\Http\Controller
 {
     public function __construct()
     {
         $this->middleware('permission:TALENTDAYS_ADMIN|TALENTDAYS_AREA');
     }
-    
+
     // ...
 }
 
@@ -62,6 +62,6 @@ In above example only user with `TALENTDAYS_ADMIN` or `TALENTDAYS_AREA` can acce
 
 ## Allow sending PATH requests with multipart-form content type
 
-Add `Absolvent\api\Http\Middleware\PreparePatchMultiPartForm` to `Absolvent\api\Http\Kernel::$middleware`
+Add `Newride\api\Http\Middleware\PreparePatchMultiPartForm` to `Newride\api\Http\Kernel::$middleware`
 
 Make sure that `PreparePatchMultiPartForm` is after `ValidatePostSize`

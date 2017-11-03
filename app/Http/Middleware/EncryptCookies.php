@@ -1,6 +1,6 @@
 <?php
 
-namespace Absolvent\api\Http\Middleware;
+namespace Newride\api\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 

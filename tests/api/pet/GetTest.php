@@ -1,8 +1,8 @@
 <?php
 
-namespace Absolvent\api\tests\Feature;
+namespace Newride\api\tests\Feature;
 
-use Absolvent\api\TestCase;
+use Newride\api\TestCase;
 
 class PetstoreSwaggerTest extends TestCase
 {

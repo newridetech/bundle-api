@@ -1,6 +1,6 @@
 <?php
 
-namespace Absolvent\api\Http\Middleware;
+namespace Newride\api\Http\Middleware;
 
 use Closure;
 use Riverline\MultiPartParser\Part;
@@ -12,7 +12,7 @@ use SplFileInfo;
  *
  * Allows to process PATCH requests that has Content-Type of multipart/form-data
  *
- * @package Absolvent\AbsolventBackend\app\Http\Middleware
+ * @package Newride\NewrideBackend\app\Http\Middleware
  */
 class PreparePatchMultiPartForm
 {

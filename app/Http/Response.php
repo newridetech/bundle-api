@@ -1,6 +1,6 @@
 <?php
 
-namespace Absolvent\api\Http;
+namespace Newride\api\Http;
 
 use Illuminate\Http\Response as BaseResponse;
 

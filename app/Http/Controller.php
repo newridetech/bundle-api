@@ -1,13 +1,13 @@
 <?php
 
-namespace Absolvent\api\Http;
+namespace Newride\api\Http;
 
-use Absolvent\api\AppSwaggerSchema;
-use Absolvent\swagger\RequestParameters;
-use Absolvent\swagger\SwaggerSchema;
-use Absolvent\swagger\SwaggerValidator;
-use Absolvent\swagger\SwaggerValidator\HttpRequest as HttpRequestValidator;
-use Absolvent\swagger\SwaggerValidator\HttpResponse as HttpResponseValidator;
+use Newride\api\AppSwaggerSchema;
+use Newride\swagger\RequestParameters;
+use Newride\swagger\SwaggerSchema;
+use Newride\swagger\SwaggerValidator;
+use Newride\swagger\SwaggerValidator\HttpRequest as HttpRequestValidator;
+use Newride\swagger\SwaggerValidator\HttpResponse as HttpResponseValidator;
 use App;
 use Illuminate\Routing\Controller as BaseController;
 use stdClass;
@@ -56,7 +56,7 @@ abstract class Controller extends BaseController
         static::validateHttpRequest($swaggerSchema, new HttpRequestValidator($request));
 
         $parameters = (new RequestParameters($request))->getDataBySwaggerSchema($swaggerSchema);
-        
+
         // only parameters defined in swagger schema should passed into this
         // method (instead of Request object) to enforce correct API
         // documentation in swagger.yml

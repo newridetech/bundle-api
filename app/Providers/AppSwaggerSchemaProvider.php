@@ -1,8 +1,8 @@
 <?php
 
-namespace Absolvent\api\Providers;
+namespace Newride\api\Providers;
 
-use Absolvent\api\AppSwaggerSchema;
+use Newride\api\AppSwaggerSchema;
 use Illuminate\Support\ServiceProvider;
 
 class AppSwaggerSchemaProvider extends ServiceProvider

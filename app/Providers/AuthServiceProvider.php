@@ -1,8 +1,8 @@
 <?php
 
-namespace Absolvent\api\Providers;
+namespace Newride\api\Providers;
 
-use Absolvent\api\app\Auth\JwtAuthenticationGuard;
+use Newride\api\app\Auth\JwtAuthenticationGuard;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Codecasts\Auth\JWT\Token\Manager;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Absolvent\api\Exceptions;
+namespace Newride\api\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Absolvent\api\tests\Unit;
+namespace Newride\api\tests\Unit;
 
-use Absolvent\api\SwaggerRouteAction;
-use Absolvent\swagger\Breadcrumbs\RequestPath\RequestMethod as RequestMethodBreadcrumbs;
+use Newride\api\SwaggerRouteAction;
+use Newride\swagger\Breadcrumbs\RequestPath\RequestMethod as RequestMethodBreadcrumbs;
 use PHPUnit\Framework\TestCase;
 
 class SwaggerRouteActionTest extends TestCase
