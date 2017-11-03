@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: newride/php:7.1
+      - image: circleci/php:7.1
     working_directory: ~/repo
     steps:
       - checkout
