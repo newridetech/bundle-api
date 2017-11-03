@@ -2,14 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.1
+      - image: jakzal/php-intl:7.1
     working_directory: ~/repo
     steps:
       - checkout
-      - run: sudo apt-get update
-      - run: sudo apt-get install libicu-dev
-      - run: sudo pecl channel-update pecl.php.net
-      - run: sudo pecl install intl && sudo docker-php-ext-enable intl
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "composer.json" }}
