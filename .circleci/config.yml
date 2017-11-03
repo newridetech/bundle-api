@@ -6,6 +6,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - run: sudo apt-get install libicu-dev
       - run: sudo docker-php-ext-install intl
       - restore_cache:
           keys:
