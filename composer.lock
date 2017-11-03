@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1476e9d1cb3f69e951c335cefa983ad2",
+    "content-hash": "97d00a35ddda8b155234db5249cdf408",
     "packages": [
         {
             "name": "codecasts/laravel-jwt",
@@ -1419,16 +1419,16 @@
         },
         {
             "name": "newride/bundle-swagger",
-            "version": "1.6.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/newridetech/bundle-swagger.git",
-                "reference": "cf2c46618cbd16437c3cad237a1caa1d0f3da2dd"
+                "reference": "c210fadb7b3c476810fdf5312b36e9798ce389cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newridetech/bundle-swagger/zipball/cf2c46618cbd16437c3cad237a1caa1d0f3da2dd",
-                "reference": "cf2c46618cbd16437c3cad237a1caa1d0f3da2dd",
+                "url": "https://api.github.com/repos/newridetech/bundle-swagger/zipball/c210fadb7b3c476810fdf5312b36e9798ce389cd",
+                "reference": "c210fadb7b3c476810fdf5312b36e9798ce389cd",
                 "shasum": ""
             },
             "require": {
@@ -1448,16 +1448,16 @@
             "type": "project",
             "autoload": {
                 "psr-4": {
-                    "Absolvent\\swagger\\": "app/",
-                    "Absolvent\\swagger\\database\\": "database/",
-                    "Absolvent\\swagger\\tests\\": "tests/"
+                    "Newride\\swagger\\": "app/",
+                    "Newride\\swagger\\database\\": "database/",
+                    "Newride\\swagger\\tests\\": "tests/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "time": "2017-08-24T14:21:00+00:00"
+            "time": "2017-11-03T15:36:05+00:00"
         },
         {
             "name": "nikic/php-parser",

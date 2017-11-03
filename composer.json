@@ -9,7 +9,7 @@
         "laravel/framework": "5.4.*",
         "league/fractal": "^0.15.0",
         "league/uri": "^5.0",
-        "newride/bundle-swagger": "^1.4.8",
+        "newride/bundle-swagger": "^2.0.0",
         "php": ">=7.1.0",
         "symfony/yaml": "^3.2"
     },
