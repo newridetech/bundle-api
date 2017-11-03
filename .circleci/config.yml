@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: newridetech/php
+      - image: newridetech/php:7e56d470f2a747579ef2a05db3b366cd815c3b79
     working_directory: ~/repo
     steps:
       - checkout
