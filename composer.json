@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "codecasts/laravel-jwt": "^0.8.5",
+        "ext-intl": "*",
         "laravel/framework": "5.4.*",
         "league/fractal": "^0.15.0",
         "league/uri": "^5.0",
